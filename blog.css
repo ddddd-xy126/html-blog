@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #d283bf;
+  margin: 0; /* 确保body没有额外的外边距 */
+  /* padding-top: 60px; */
+}
+/* 导航栏样式 */
+.navbar {
+  background-color: #be4fa5;
+  color: white;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0; /* 确保导航栏固定在页面顶部 */
+  left: 0;
+  right: 0;
+  /* height: 60px; 设置导航栏的高度 */
+  z-index: 1000; /* 确保导航栏在其他内容之上 */
+}
+.nav-item a:hover {
+  background-color: #d50ca9;
+}
+.nav-list {
+  list-style: none;
+  display: flex;
+}
+
+.nav-item {
+  margin: 0 20px;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+}
+/* 屏幕尺寸小于768 */
+@media screen and (max-width: 768px) {
+  .nav-item a {
+    font-size: calc(12px + 4 * ((100vw - 320px) / 480));
+  }
+}
+@media screen and (min-width: 768px) {
+  .nav-item a {
+    font-size: calc(16px + 4 * ((100vw - 768px) / 480));
+  }
+}
+.slider {
+  position: relative;
+  width: 100%; /* 或者设置一个具体的宽度 */
+  height: 500px; /* 设置容器的高度 */
+  overflow: hidden; /* 防止内容溢出 */
+}
+
+.slider img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 保持图片比例填充容器 */
+  opacity: 0;
+  transition: opacity 2s ease-in-out; /* 添加过渡效果 */
+}
+
+.slider img.active {
+  opacity: 1; /* 显示当前图片 */
+}
+.section1 {
+  background-color: white;
+  font-size: 0px;
+  display: flex;
+  width: 100%;
+  height: 500px;
+  align-content: space-between;
+  padding: 0;
+  /* margin: 10px; */
+}
+.guanYuWo {
+  width: 50%;
+  height: 100%;
+  border: 1px;
+  display: inline-block;
+  margin-right: 10px;
+}
+.muBiao {
+  width: 50%;
+  height: 100%;
+  border: 1px;
+  display: inline-block;
+  margin-left: 10px;
+}
+h2 {
+  font-size: large;
+  color: white;
+  background-color: #be4fa5;
+}
+ul,
+ol {
+  list-style-position: inside;
+  /* 文字和符号紧跟在一起 outside默认值 */
+}
+.guanYuWo-XX {
+  font-size: 25px;
+  color: black;
+}
+.muBiao-MM {
+  font-size: 25px;
+  color: black;
+  line-height: 3rem;
+}
+
+.TX {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}

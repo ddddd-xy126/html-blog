@@ -1,0 +1,195 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 50%;
+  height: 100vh;
+  background-image: linear-gradient(
+    to right,
+    rgb(18, 1, 16),
+    rgb(222, 128, 211)
+  );
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+}
+.container1 {
+  width: 20rem;
+  height: 20rem;
+  /* border: 1px solid red; */
+  position: relative;
+  top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container1 .sun {
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  background-color: #ff0;
+  border-radius: 50%;
+  box-shadow: 0 0 4rem #fff, 0 0 5rem #fff;
+}
+.nav-item a:hover {
+  background-color: #d50ca9;
+}
+/* 定义变量 */
+.earth {
+  --diameter: 15;
+  --duration: 18.25;
+}
+.moon {
+  --diameter: 4;
+  --duration: 1.35;
+  top: 0.15rem;
+  right: 0.15rem;
+}
+
+/* the earth style */
+.earth,
+.moon {
+  position: absolute;
+  width: calc(var(--diameter) * 1rem);
+  height: calc(var(--diameter) * 1rem);
+  /* background-color: aqua; */
+  border-radius: 50%;
+  border-style: solid solid none none;
+  border-color: silver transparent transparent transparent;
+  border-width: 0.1rem;
+  animation: move calc(var(--duration) * 1s) linear infinite;
+}
+
+@keyframes move {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/* 定义变量 */
+.earth::before {
+  --diameter: 1.5;
+  --color: dodgerblue;
+  --top: 1.4;
+  --right: 1.4;
+}
+.moon::before {
+  --diameter: 0.6;
+  --color: #fff;
+  --top: 0.4;
+  --right: 0.1;
+}
+
+/* 画地球和月亮 */
+.earth::before,
+.moon::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--top) * 1rem);
+  right: calc(var(--right) * 1rem);
+  width: calc(var(--diameter) * 1rem);
+  height: calc(var(--diameter) * 1rem);
+  background-color: var(--color);
+  border-radius: 50%;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0px;
+  flex-wrap: nowrap;
+}
+.container .card {
+  position: relative;
+  width: 20vw;
+  height: 40vh;
+  color: #fff;
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 30px;
+  transition: 0.5s;
+  overflow: auto;
+}
+.container .card:hover {
+  transform: translateY(-25px);
+}
+.container .card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ffbc00, #ff0058);
+}
+.container .card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ffbc00, #ff0058);
+  filter: blur(30px);
+}
+.container .card:nth-child(2):after,
+.container .card:nth-child(2):before {
+  background: linear-gradient(315deg, #03a9f4, #ff0058);
+}
+.container .card:nth-child(3):after,
+.container .card:nth-child(3):before {
+  background: linear-gradient(315deg, #4dff03, #00d0ff);
+}
+.container .card span {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  z-index: 1;
+}
+.container .card span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+.container .card .content {
+  z-index: 2;
+  position: relative;
+  padding: 20px 40px;
+}
+.container .card .content h2 {
+  font-size: 2em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.container .card .content p {
+  font-size: 1.1em;
+  color: #fff;
+  line-height: 1.4em;
+  margin-bottom: 10px;
+}
+.container .card .content a {
+  display: inline-block;
+  text-decoration: none;
+  color: #000;
+  background-color: #fff;
+  padding: 7px;
+  font-weight: 600;
+  border-radius: 5px;
+}

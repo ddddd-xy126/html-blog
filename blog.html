@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>个人博客</title>
+    <link rel="stylesheet" href="blog.css" />
+    
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="blog.html">个人首页</a></li>
+        <li class="nav-item"><a href="aihao.html">兴趣爱好</a></li>
+        <li class="nav-item"><a href="xiangce.html">相册</a></li>
+        <li class="nav-item"><a href="liuyan.html">给我留言吧</a></li>
+      </ul>
+    </nav>
+    <div class="slider">
+      <img src="img/1.jpg" alt="First Image" class="PB active" />
+      <!-- 默认显示第一张图片 -->
+      <img
+        src="img/img-1729821532255d34a29c0e76457e7ce9229ef0ebc86f0.jpg"
+        alt="Second Image"
+        class="PB"
+      />
+      <img src="img/wallhaven-zygeko.jpg" alt="Third Image" class="PB" />
+      <img src="img/wallhaven-zyxvqy.jpg" alt="Fourth Image" class="PB" />
+    </div>
+    <main>
+      <section class="section1">
+        <div class="guanYuWo">
+          <h2>关于我</h2>
+          <img src="img/20241214_13104792.png" alt="头像" class="TX" />
+          <ul class="guanYuWo-XX">
+            <li>姓名：邓欣羽</li>
+            <li>性别：女</li>
+            <li>年龄：20</li>
+            <li>家乡：四川-雅安</li>
+            <li>联系方式：223020463@qq.com</li>
+          </ul>
+        </div>
+        <div class="muBiao">
+          <h2>我的学习目标</h2>
+          <ol class="muBiao-MM">
+            <li>html5</li>
+            <li>css3</li>
+            <li>JavaScript</li>
+            <li>ES6</li>
+            <li>Axios</li>
+            <li>vue.js(react.js)</li>
+            <li>ElementPlus</li>
+            <li>ECharts</li>
+            <li>Node.js</li>
+          </ol>
+      </section>
+    </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const images = document.querySelectorAll(".PB");
+        let currentIndex = 0; // 从第一张图片开始
+
+        function showNextImage() {
+          images[currentIndex].classList.remove("active"); // 隐藏当前图片
+          currentIndex = (currentIndex + 1) % images.length; // 计算下一张图片的索引
+          images[currentIndex].classList.add("active"); // 显示下一张图片
+        }
+
+        // 不需要立即调用showNextImage，因为第一张图片已经有'active'类了
+        // showNextImage();
+
+        setInterval(showNextImage, 3000); // 每2秒切换一次图片
+      });
+    </script>
+  </body>
+</html>
